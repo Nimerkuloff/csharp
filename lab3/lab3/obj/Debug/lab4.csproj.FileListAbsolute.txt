@@ -1,0 +1,10 @@
+S:\Repos\csharp\lab4\bin\Debug\lab3.exe.config
+S:\Repos\csharp\lab4\bin\Debug\lab3.exe
+S:\Repos\csharp\lab4\bin\Debug\lab3.pdb
+S:\Repos\csharp\lab4\obj\Debug\lab4.csprojAssemblyReference.cache
+S:\Repos\csharp\lab4\obj\Debug\lab4.Form1.resources
+S:\Repos\csharp\lab4\obj\Debug\lab3.Properties.Resources.resources
+S:\Repos\csharp\lab4\obj\Debug\lab4.csproj.GenerateResource.cache
+S:\Repos\csharp\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
+S:\Repos\csharp\lab4\obj\Debug\lab3.exe
+S:\Repos\csharp\lab4\obj\Debug\lab3.pdb
