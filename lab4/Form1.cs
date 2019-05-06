@@ -5,14 +5,16 @@ namespace lab4
 {
     public partial class Form1 : Form
     {
+
         int rows, cols;
         int rows2, cols2;
        
-    
+
         public Form1()
         {
             InitializeComponent();
         }
+
 
         private double[][] toJaggedArray(double[,] arrFinal)
         {
@@ -97,7 +99,6 @@ namespace lab4
                 return nullArr;
             }
         }
-
         private void setRowsAndCols()
         {
             dataGridView1.RowCount = rows;
@@ -105,9 +106,6 @@ namespace lab4
             dataGridView2.RowCount = rows2;
             dataGridView2.ColumnCount = cols2;
         }
-
-
-
         private double[,] randomInit(int rows, int cols)
         {
             //Заполняем матрицу случайными числами
@@ -161,10 +159,6 @@ namespace lab4
         {
             errorLabel.Text = "";
         }
-
-
-
-
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -210,12 +204,10 @@ namespace lab4
                 textBox4.ResetText();
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Button2_Click(object sender, EventArgs e)
         {
             textBox1.Enabled = false;
