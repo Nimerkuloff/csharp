@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
 using System.Windows.Forms;
 
 
@@ -22,6 +14,7 @@ namespace lab4
         {
             InitializeComponent();
         }
+
         private void processMatrices()
         {
             bool notSquareMatrix = rows != cols && rows2 != cols2;
@@ -48,13 +41,6 @@ namespace lab4
             }
         }
 
-
-
-
-
-
-
-
         private void getNumOfNonNegativeElems(double[,] arrFinal)
         {
             foreach (double elem in arrFinal)
@@ -65,6 +51,7 @@ namespace lab4
                 }
             }
         }
+
         private double[,] multiplyMatrices(double[,] arrA, double[,] arrB)
         {
             if (cols == rows2)
@@ -89,6 +76,7 @@ namespace lab4
                 return nullArr;
             }
         }
+
         private void setRowsAndCols()
         {
             dataGridView1.RowCount = rows;
@@ -96,10 +84,12 @@ namespace lab4
             dataGridView2.RowCount = rows2;
             dataGridView2.ColumnCount = cols2;
         }
+
         private void initLabel()
         {
             errorLabel.Text = "";
         }
+
         private double[,] randomInit(int rows, int cols)
         {
             //Заполняем матрицу случайными числами
