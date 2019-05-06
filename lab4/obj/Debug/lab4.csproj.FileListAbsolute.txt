@@ -8,3 +8,13 @@ S:\Repos\csharp\lab4\obj\Debug\lab4.csproj.GenerateResource.cache
 S:\Repos\csharp\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
 S:\Repos\csharp\lab4\obj\Debug\lab3.exe
 S:\Repos\csharp\lab4\obj\Debug\lab3.pdb
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\bin\Debug\lab3.exe.config
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\bin\Debug\lab3.exe
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\bin\Debug\lab3.pdb
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab4.csprojAssemblyReference.cache
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab4.Form1.resources
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab3.Properties.Resources.resources
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab4.csproj.GenerateResource.cache
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab3.exe
+C:\Users\nimerkuloff\source\repos\Nimerkuloff\csharp\lab4\obj\Debug\lab3.pdb

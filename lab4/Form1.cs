@@ -1,20 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-
-
 namespace lab4
 {
     public partial class Form1 : Form
     {
         int rows, cols;
         int rows2, cols2;
-        private int arrFinalSize = 0;
-
+       
+    
         public Form1()
         {
             InitializeComponent();
         }
 
+        private double[][] toJaggedArray(double[,] arrFinal)
+        {
+            double[][] jarray = new double[rows][];
+            var buffer = new List<double>(); 
+           
+            for (int k = 0; k < rows; k++)
+            {
+                for (int i = 0; i < cols2; i++)
+                {
+                    if (arrFinal[k,i] >= 0)
+                    {
+                        buffer.Add(arrFinal[k, i]);
+                    }
+                }
+                jarray[k] = new double[buffer.Count] ;
+                buffer.CopyTo(jarray[k]);
+                buffer.Clear();
+            }
+            return jarray;
+        }
+        private void printJaggedArray(double[][] jarray)
+        {
+            for (int k = 0; k < rows; k++)
+            {
+                string rowToString ="";
+                for (int i = 0; i < jarray[k].Length; i++)
+                {
+                    rowToString += Math.Round(jarray[k][i], 1).ToString()+"  ";
+                    
+                }
+                    label5.Text += "jarray[" + k + "] = { " + rowToString+"}" + "\n";
+            }
+        }
         private void processMatrices()
         {
             bool notSquareMatrix = rows != cols && rows2 != cols2;
@@ -30,27 +62,16 @@ namespace lab4
                 arrToGrid(2, arr2);
 
                 double[,] arrFinal = multiplyMatrices(arr1, arr2);
-                arrToGrid(3, arrFinal);
+                double[][] jarray = toJaggedArray(arrFinal);
 
-                //getNumOfNonNegativeElems(arrFinal);
-
+                printJaggedArray(jarray);
             }
             else
             {
                 errorLabel.Text = "перезапустите программу и\nвведите прямоугольные матрицы";
             }
         }
-
-        private void getNumOfNonNegativeElems(double[,] arrFinal)
-        {
-            foreach (double elem in arrFinal)
-            {
-                if (elem >= 0)
-                {
-                    arrFinalSize++;
-                }
-            }
-        }
+       
 
         private double[,] multiplyMatrices(double[,] arrA, double[,] arrB)
         {
@@ -85,10 +106,7 @@ namespace lab4
             dataGridView2.ColumnCount = cols2;
         }
 
-        private void initLabel()
-        {
-            errorLabel.Text = "";
-        }
+
 
         private double[,] randomInit(int rows, int cols)
         {
@@ -99,13 +117,12 @@ namespace lab4
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    arr[i, j] = rand.NextDouble() * 10;
+                    arr[i, j] = rand.NextDouble()*15-5;
                 }
             }
-            
             return arr;
         }
-        private void arrToGrid(int numOfMatrix, double[,] arr1or2or3)
+        private void arrToGrid(int numOfMatrix, double[,] arr1or2)
         {
             if (numOfMatrix == 1)
             {
@@ -114,7 +131,7 @@ namespace lab4
                 {
                     for (int j = 0; j < cols; j++)
                     {
-                        dataGridView1.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
+                        dataGridView1.Rows[i].Cells[j].Value = Convert.ToString(arr1or2[i, j]);
                     }
                 }
             }
@@ -124,58 +141,79 @@ namespace lab4
                 {
                     for (int j = 0; j < cols2; j++)
                     {
-                        dataGridView2.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
+                        dataGridView2.Rows[i].Cells[j].Value = Convert.ToString(arr1or2[i, j]);
                     }
                 }
             }
-            else if (numOfMatrix == 3)
-            {
-                if (!arr1or2or3.Equals(0))
-                {
-                    dataGridView3.RowCount = rows;
-                    dataGridView3.ColumnCount = cols2;
-                    for (int i = 0; i < rows; i++)
-                    {
-                        for (int j = 0; j < cols2; j++)
-                        {
-                            if (arr1or2or3[i, j] >= 0)
-                            {
-                                dataGridView3.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
-                            }
-                            else
-                            {
-                                dataGridView3.Rows[i].Cells[j].Value = "*";
-                            }
-                        }
-
-                    }
-                }
-                else
-                {
-                    errorLabel.Text = "эти матрицы нельзя перемножить";
-                }
-            }
+           
         }
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
 
+            return true;
+        }
+        private void initLabel()
+        {
+            errorLabel.Text = "";
+        }
 
 
 
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != "") rows = Convert.ToInt32(textBox1.Text);
+
+            if (textBox1.Text != "" && IsDigitsOnly(textBox1.Text))
+            {
+                rows = Convert.ToInt32(textBox1.Text);
+            }
+            else
+            {
+                textBox1.ResetText();
+            }
         }
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
-            if (textBox2.Text != "") cols = Convert.ToInt32(textBox2.Text);
+            if (textBox2.Text != "" && IsDigitsOnly(textBox2.Text))
+            {
+                cols = Convert.ToInt32(textBox2.Text);
+            }
+            else
+            {
+                textBox2.ResetText();
+            }
         }
         private void TextBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox3.Text != "") rows2 = Convert.ToInt32(textBox3.Text);
+            if (textBox3.Text != "" && IsDigitsOnly(textBox3.Text))
+            {
+                rows2 = Convert.ToInt32(textBox3.Text);
+            }
+            else
+            {
+                textBox3.ResetText();
+            }
         }
         private void TextBox4_TextChanged(object sender, EventArgs e)
         {
-            if (textBox4.Text != "") cols2 = Convert.ToInt32(textBox4.Text);
+            if (textBox4.Text != "" && IsDigitsOnly(textBox4.Text))
+            {
+                cols2 = Convert.ToInt32(textBox4.Text);
+            }
+            else
+            {
+                textBox4.ResetText();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -195,7 +233,6 @@ namespace lab4
             else
             {
                 button2.Enabled = false;
-
             }
         }
     }
