@@ -8,6 +8,7 @@ namespace lab4
 
         int rows, cols;
         int rows2, cols2;
+        Random rand = new Random();
        
 
         public Form1()
@@ -46,7 +47,7 @@ namespace lab4
                     rowToString += Math.Round(jarray[k][i], 1).ToString()+"  ";
                     
                 }
-                    label5.Text += "jarray[" + k + "] = { " + rowToString+"}" + "\n";
+                    label5.Text += "jarray[" + k + "] =  {  " + rowToString+"}" + "\n";
             }
         }
         private void processMatrices()
@@ -110,14 +111,14 @@ namespace lab4
         {
             //Заполняем матрицу случайными числами
             double[,] arr = new double[rows, cols];
-            Random rand = new Random();
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    arr[i, j] = rand.NextDouble()*15-5;
+                    arr[i, j] = Math.Round(rand.NextDouble()*15-5,1);
                 }
             }
+            
             return arr;
         }
         private void arrToGrid(int numOfMatrix, double[,] arr1or2)
