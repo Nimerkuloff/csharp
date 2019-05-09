@@ -35,8 +35,8 @@ namespace lab7
             for (int i = 0; i < count; i++)
             {
                 x[i] = xMin + step * i;
-                y[i] = (trackBarY.Value / trackBarY.Maximum) * Math.PI;
-                z[i] = (trackBarZ.Value / trackBarZ.Maximum) * Math.PI;
+                y[i] = (trackBarY.Value) ;
+                z[i] = (trackBarZ.Value) ;
 
                 v[i] = Math.Pow(Math.Abs(Math.Cos(x[i]) - Math.Cos(y[i])), 1 + 2 * Math.Pow(Math.Sin(y[i]), 2))
                        * (1 + z[i] + Math.Pow(z[i], 2) / 2 + Math.Pow(z[i], 3) / 3 + Math.Pow(z[i], 4) / 4);
@@ -49,13 +49,14 @@ namespace lab7
             chart = new Chart();
             chart.Parent = this;
             chart.SetBounds(10, 10, ClientSize.Width - 20, ClientSize.Height - 20);
+            chart.Series.Clear();
 
             ChartArea area = new ChartArea();
             area.Name = "myGraph";
             area.AxisX.Minimum = xMin;
             area.AxisX.Maximum = xMax;
             area.AxisX.MajorGrid.Interval = step;
-
+            
             chart.ChartAreas.Add(area);
 
             Series series = new Series();
@@ -63,6 +64,7 @@ namespace lab7
             series.ChartType = SeriesChartType.Spline;
             series.BorderWidth = 3;
             series.LegendText = "V";
+            
             chart.Series.Add(series);
 
             Legend legend = new Legend();
@@ -78,16 +80,21 @@ namespace lab7
 
         private void TrackBarY_ValueChanged(object sender, EventArgs e)
         {
-            chart.Series[0].Points.Clear();
+            
             CalcFunction();
             chart.Series[0].Points.DataBindXY(x, v);
         }
 
         private void TrackBarZ_ValueChanged(object sender, EventArgs e)
         {
-            chart.Series[0].Points.Clear();
+            
             CalcFunction();
             chart.Series[0].Points.DataBindXY(x, v);
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

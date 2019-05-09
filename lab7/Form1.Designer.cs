@@ -40,7 +40,7 @@
             // 
             this.trackBarY.LargeChange = 1;
             this.trackBarY.Location = new System.Drawing.Point(632, 39);
-            this.trackBarY.Maximum = 100;
+            this.trackBarY.Maximum = 30;
             this.trackBarY.Minimum = 1;
             this.trackBarY.Name = "trackBarY";
             this.trackBarY.Size = new System.Drawing.Size(104, 21);
@@ -52,7 +52,7 @@
             // 
             this.trackBarZ.LargeChange = 1;
             this.trackBarZ.Location = new System.Drawing.Point(632, 110);
-            this.trackBarZ.Maximum = 100;
+            this.trackBarZ.Maximum = 30;
             this.trackBarZ.Minimum = 1;
             this.trackBarZ.Name = "trackBarZ";
             this.trackBarZ.Size = new System.Drawing.Size(104, 21);
@@ -65,18 +65,19 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(629, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "ось У";
+            this.label1.Text = "значения У";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(632, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "ось Z";
+            this.label2.Text = "значения Z";
             // 
             // Form1
             // 
