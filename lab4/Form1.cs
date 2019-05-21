@@ -65,6 +65,7 @@ namespace lab4
                 arrToGrid(2, arr2);
 
                 double[,] arrFinal = multiplyMatrices(arr1, arr2);
+                arrToGrid(3, arrFinal);
                 double[][] jarray = toJaggedArray(arrFinal);
 
                 printJaggedArray(jarray);
@@ -106,6 +107,8 @@ namespace lab4
             dataGridView1.ColumnCount = cols;
             dataGridView2.RowCount = rows2;
             dataGridView2.ColumnCount = cols2;
+            dataGridView3.RowCount = rows;
+            dataGridView3.ColumnCount = cols2;
         }
         private double[,] randomInit(int rows, int cols)
         {
@@ -121,7 +124,7 @@ namespace lab4
             
             return arr;
         }
-        private void arrToGrid(int numOfMatrix, double[,] arr1or2)
+        private void arrToGrid(int numOfMatrix, double[,] arr1or2or3)
         {
             if (numOfMatrix == 1)
             {
@@ -130,7 +133,7 @@ namespace lab4
                 {
                     for (int j = 0; j < cols; j++)
                     {
-                        dataGridView1.Rows[i].Cells[j].Value = Convert.ToString(arr1or2[i, j]);
+                        dataGridView1.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
                     }
                 }
             }
@@ -140,11 +143,29 @@ namespace lab4
                 {
                     for (int j = 0; j < cols2; j++)
                     {
-                        dataGridView2.Rows[i].Cells[j].Value = Convert.ToString(arr1or2[i, j]);
+                        dataGridView2.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
                     }
                 }
             }
-           
+            else if (numOfMatrix == 3)
+            {
+                if (!arr1or2or3.Equals(0))
+                {
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < cols2; j++)
+                        {
+
+                            dataGridView3.Rows[i].Cells[j].Value = Convert.ToString(arr1or2or3[i, j]);
+
+                        }
+                        
+
+                    }
+                }
+
+            }
         }
         bool IsDigitsOnly(string str)
         {
