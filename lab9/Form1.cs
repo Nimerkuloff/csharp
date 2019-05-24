@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ 4. Создайте программу, показывающую движение окружности по синусои-
+де.
+*/
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;

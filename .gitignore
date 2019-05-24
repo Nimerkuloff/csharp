@@ -20,3 +20,6 @@ lab1/20.02/bin/Debug/20.02.exe
 /lab7/Properties
 /ConsoleApplication1
 /ConsoleApp1
+*.pdb
+*.pdb
+lab9/obj/Debug/lab9.pdb
